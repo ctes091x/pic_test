@@ -23,6 +23,7 @@ void main(){
     while (true) {     // ?????
         if(RA0 != 0){
             RB0 = 1;
+            __delay_ms(500);
         }else{
             RB0 = 0;
         }
