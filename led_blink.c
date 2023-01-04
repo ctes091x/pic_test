@@ -20,26 +20,11 @@ void main(){
     //PORTA = 0x00;   // PORTA???
     PORTB = 0x00;   // PORTB???
     
-    int i;
-    
-    __delay_ms(2000);
-    
     while (true) {     // ?????
-        i++;
-        //if ( PORTA = 1){
-        //    i = 0;
-        //}
-        /*
-        if ( i > 255 ) {
-            i = 0;
-        }
-        PORTB = i;
-        */
         if(RA0 != 0){
             RB0 = 1;
         }else{
             RB0 = 0;
         }
-        // __delay_ms(50);       // 1????
     }
 }
