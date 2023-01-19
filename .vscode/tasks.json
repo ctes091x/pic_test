@@ -1,0 +1,54 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "detail": "Build C source files",
+            "type": "shell",
+            "command": "xc8",
+            "args": [
+                "--chip=16F84A",
+                "-Oout/${fileBasenameNoExtension}",
+                "${fileBasenameNoExtension}.c"
+            ],
+            "group": {
+                "isDefault": true,
+                "kind": "build"
+            },
+            "problemMatcher": []
+        },
+		{
+			"label": "MoveHex",
+			"detail": "temporary move hex file",
+			"type": "shell",
+			"command": "move",
+			"args": [
+				"out/${fileBasenameNoExtension}.hex",
+				"${fileBasenameNoExtension}.hex"
+			],
+			"problemMatcher": []
+		},
+        {
+            "label": "Clean",
+            "detail": "Clean output files",
+            "type": "shell",
+            "command": "rm",
+            "args": [
+                "out/*"
+            ],
+            "problemMatcher": []
+        },
+		{
+			"label": "Output",
+			"detail": "Output hex file",
+			"type": "shell",
+			"problemMatcher": [],
+			"dependsOrder": "sequence",
+			"dependsOn":[
+				"Build",
+				"MoveHex",
+				"Clean"
+			]
+		}
+    ]
+}
